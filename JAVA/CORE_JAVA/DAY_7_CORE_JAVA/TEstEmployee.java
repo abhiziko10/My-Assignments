@@ -36,20 +36,24 @@ class Wage_employee extends Employee{
     }
 
 }
-class  SalesPerson extends Wage_employee{
+class  SalesPerson extends Wage_employee {
     int sales;
     int commission;
-    SalesPerson(int ID, String Emp_name, int rate, int hrs, int sales,int commission) {
+
+    SalesPerson(int ID, String Emp_name, int rate, int hrs, int sales, int commission) {
         super(ID, Emp_name, rate, hrs);
         this.sales = sales;
-        this.commission=commission;
+        this.commission = commission;
     }
 
-    public void computeSalary(){
-       super.computeSalary();
-        System.out.println("The salary of the Employer is:: "+sales+commission);
+    public void computeSalary() {
+        super.computeSalary();
+        System.out.println("The salary of the Employer is:: " + sales + commission);
 
     }
+
+}
+
     class Manager extends Employee{
         int fixedSalary,incentives;
 
@@ -65,8 +69,14 @@ class  SalesPerson extends Wage_employee{
         }
     }
 
-}
+
 public class TEstEmployee {
+    void show(Employee e[])
+    {
+        for(int i=0;i<e.length;i++){
+            e[i].computeSalary();
+        }
+    }
     public static void main(String args[]){
  Employee employee=new Wage_employee(3,"Aritra",24,45);
  employee.computeSalary();
@@ -75,16 +85,29 @@ public class TEstEmployee {
     wage_employee.computeSalary();
 Employee emp=new SalesPerson(2,"ziko",15,22,100,1000);
 emp.computeSalary();
+Employee employee1 = new Manager(4,"Anwesha",10000,1000);
+employee1.computeSalary();
+Employee e[]= new Employee[3];
+e[0]=employee;
+e[1]=employee1;
+e[2]=emp;
+new TEstEmployee().show(e);
 
     }
 }
+/*
+C:\Users\coditas\.jdks\openjdk-18.0.1.1\bin\java.exe "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.1.3\lib\idea_rt.jar=56316:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.1.3\bin" -Dfile.encoding=UTF-8 -classpath "C:\Users\coditas\IdeaProjects\CORE JAVA_DAY 2\out\production\CORE JAVA_DAY 2" DAY_7_CORE_JAVA.TEstEmployee
+Employee id:3NAme of employee is :Aritra
+Employee id:1NAme of employee is :Abhishek
+The salary of the Employer is:: 1001000
+Employee id:2NAme of employee is :ziko
+The salary of the Employer is:: 1001000
+Employee id:4NAme of employee is :Anwesha
+Employee id:3NAme of employee is :Aritra
+Employee id:4NAme of employee is :Anwesha
+Employee id:2NAme of employee is :ziko
+The salary of the Employer is:: 1001000
+
+ */
 
 
-//C:\Users\coditas\.jdks\openjdk-18.0.1.1\bin\java.exe "-javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.1.3\lib\idea_rt.jar=56018:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.1.3\bin" -Dfile.encoding=UTF-8 -classpath "C:\Users\coditas\IdeaProjects\CORE JAVA_DAY 2\out\production\CORE JAVA_DAY 2" DAY_7_CORE_JAVA.SalesPerson_details_salary
-//Employee id:3NAme of employee is :Aritra
-//Employee id:1NAme of employee is :Abhishek
-//The salary of the Employer is:: 1001000
-//Employee id:2NAme of employee is :ziko
-//The salary of the Employer is:: 1001000
-//
-//Process finished with exit code 0
