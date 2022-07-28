@@ -14,9 +14,10 @@ class truck extends vehicle{
 }
 public class abstract_assignment {
     public static void main(String[] args) {
-        vehicle v=new car();
+        vehicle v;
+         v=new car();
         v.engine();
-        vehicle v1=new truck();
-        v1.engine();
+         v=new truck();
+        v.engine();
     }
 }
