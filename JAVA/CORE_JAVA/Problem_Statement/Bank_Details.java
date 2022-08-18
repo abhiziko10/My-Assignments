@@ -69,17 +69,19 @@ class Bank
 public class Bank_Details {
     public static void main(String[] args) {
         Bank bank=new Bank();
+        int transaction_type=15;
         Scanner sc=new Scanner(System.in);
         System.out.println("Which type of transaction you want to perform \n"+
                 "Enter 0 for Exit & Enter 1 for Account_Type & Enter 2 for Deposit & Enter 3 for Withdraw & " +
                 "Enter 4 for Account_Details " + ":\")");
-        while(true)
+        while(transaction_type!=0)
         {
-            int transaction_type=sc.nextInt();
+             transaction_type=sc.nextInt();
             switch(transaction_type)
             {
                 case 0:
                     System.out.println("Exit!!!");
+                    transaction_type=0;
                     break;
                 case 1:
                     System.out.println("Your account details is \n");
@@ -87,7 +89,7 @@ public class Bank_Details {
                     String address=sc.next();
                     String email_Id=sc.next();
                     String account_type=sc.next();
-                    bank.account_Details(name,address,email_Id,account_type);
+                    bank.account_Details("Abhishek","Kolkata","abhi.ziko10","Savings");
                     bank.display();
                     break;
                 case 2:
