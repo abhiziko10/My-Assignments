@@ -40,7 +40,7 @@ class Bank
     }
     public void withdrawAmount(long account_number,int withdrawAmount)
     {
-        if(withdrawAmount<balance)
+        if(withdrawAmount>balance)
         {
             try
             {
