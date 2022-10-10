@@ -55,7 +55,7 @@ public class DAOImplementation implements DAOInterface{
                 subject.setSubjectiId(resultSet.getInt(6));
                 subject.setSubjectName(resultSet.getString(7));
                 subject.setSubjectMarks(resultSet.getDouble(8));
-                subject.setStudentRoll(resultSet.getInt(9));
+                
                  student.setSubject(subject);
                  return student;
            }
