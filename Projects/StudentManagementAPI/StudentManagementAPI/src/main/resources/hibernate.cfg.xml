@@ -12,8 +12,8 @@
         <property name="show_sql">true</property>
         <property name="format_sql">true</property>
         <property name="connection.pool_size">10000</property>
-        <mapping class="com.Student_Management_System.entities.Address"/>
-        <mapping class="com.Student_Management_System.entities.Student"/>
+        <mapping class="com.coditas.StudentManagementAPI.Entities.Address"/>
+        <mapping class="com.coditas.StudentManagementAPI.Entities.Student"/>
 
     </session-factory>
 </hibernate-configuration>
