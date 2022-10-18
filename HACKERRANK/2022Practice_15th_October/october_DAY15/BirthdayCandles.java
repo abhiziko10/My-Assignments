@@ -64,5 +64,21 @@ public class BirthdayCandles {
         
 
     }
+    
+    //Alternate method
+        
+        int max= candles.get(0);
+
+        for( int i=1;i<candles.size();i++){
+            if(candles.get(i)>max){
+                max=candles.get(i);
+                count =0;
+            }
+            if (max == candles.get(i)) {
+                count++;
+            }
+        }
+        return count;
+    }
 
 }
