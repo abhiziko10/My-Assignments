@@ -1,0 +1,5 @@
+Model\Booking.class
+Model\ConferenceRoom.class
+Model\User.class
+DAO\DAOInterface.class
+DAO\DAOImplementation.class
