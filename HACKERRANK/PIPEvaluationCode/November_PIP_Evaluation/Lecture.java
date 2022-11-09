@@ -4,7 +4,7 @@ public class Lecture {
     public static void main(String[] args) {
         int arrivalTime[]={12,1,2,3,5,6};
         int hours[]={2,1,1,3,4,3};
-         arrivalTime[0] =1;
+         
         int count=1;
         int nextLecture;
 
@@ -17,6 +17,9 @@ public class Lecture {
             if (arrivalTime[i] >= nextLecture) {
                 count++;
                 nextLecture = nextLecture + hours[i];
+            }
+            if(nextLecture>8){
+                count--;
             }
         }
         System.out.println("Number of classes conducted are:");
