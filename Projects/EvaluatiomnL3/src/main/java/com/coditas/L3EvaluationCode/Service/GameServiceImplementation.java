@@ -35,29 +35,29 @@ public class GameServiceImplementation implements GameService {
 
     @Override
     public MatchEntity createNewMatch(StartMatchDTO startMatchDto){
-        PlayerEntity playerOne = playerRepository.findById(startMatchDTO.getPlayerOneId()).orElse(null);
-        PlayerEntity playerTwo = playerRepository.findById(startMatchDTO.getPlayerTwoId()).orElse(null);
+        PlayerEntity player1 = playerRepository.findById(startMatchDTO.getPlayer1Id()).orElse(null);
+        PlayerEntity player2 = playerRepository.findById(startMatchDTO.getPlayer2Id()).orElse(null);
 
 
-        playerOne.setPlayerStatus("In a game");
-        playerTwo.setPlayerStatus("in a game");
+        player1.setPlayerStatus("Playing already");
+        player2.setPlayerStatus("Playing already");
         List<PlayerEntity> playersEnrolled = new ArrayList<>();
-        playersEnrolled.add(playerOne);
-        playersEnrolled.add(playerTwo);
+        playersEnrolled.add(player1);
+        playersEnrolled.add(player2);
         matchEntity.setPlayers(playersEnrolled);
         matchEntity.setMatchName(startMatchDTO.getMatchName());
-        playerRepository.save(playerOne);
-        playerRepository.save(playerTwo);
+        playerRepository.save(player1);
+        playerRepository.save(player2);
         return matchRepository.save(matchEntity);
     }
 
 
-    public PlayerMoveDTO playerMove (int playerOneMove, int playerTwoMove){
-        if (playerOneMove == playerTwoMove){
-            throw  new PositionOccupiedException();
+    public PlayerMoveDTO playerMove (int player1Move, int player2Move){
+        if (player1Move == player2Move){
+            throw  new  SamePositionOccupiedException();
         }
-        playerMoveDto.setPlayerOneMove(playerOneMove);
-        playerMoveDto.setPlayerTwoMove(playerTwoMove);
+        playerMoveDto.setPlayer1Move(player1Move);
+        playerMoveDto.setPlayerTwoMove(player2Move);
     }
      
 }
