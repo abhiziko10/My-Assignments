@@ -2,6 +2,8 @@ package com.coditas.L3EvaluationCode.Controller;
 
 import com.coditas.L3EvaluationCode.Entity.MatchEntity;
 import com.coditas.L3EvaluationCode.Model_DTO.GameDTO;
+import com.coditas.L3EvaluationCode.Model_DTO.StartMatchDTO;
+import com.coditas.L3EvaluationCode.Service.GameService;
 import com.coditas.L3EvaluationCode.Service.GameServiceImplementation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,30 +14,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/game")
 public class GameController {
     @Autowired
-    GameServiceImplementation gameServiceImplementation;
-    @PostMapping("/createGame")
-    public ResponseEntity createGame(@RequestBody GameDTO gameDTO){
-        HashMap map=new HashMap();
-        try{
-            MatchEntity game=gameServiceImplementation.registerGame(gameDTO);
-            if(game!=null){
-                System.out.println("Byeeeeeeeeeeeeeeeeeeeeeee");
-                map.put("Ready to start the game",game);
-                return new ResponseEntity(map, HttpStatus.CREATED);
+    GameService matchService;
 
-            }else{
-                System.out.println("HIIIIIIIIIIIIIII");
-                return new ResponseEntity(HttpStatus.NOT_ACCEPTABLE);
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+    @PostMapping("/startMatch")
+    public ResponseEntity createNewMatch(@RequestBody StartMatchDTO startMatchDto) {
+
+        try {
+            return new ResponseEntity(Optional.of(matchService.createNewMatch(startMatchDto)), HttpStatus.CREATED);
+        }catch(Exception exception){
+            exception.printStackTrace();
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
-
     }
 }
