@@ -4,8 +4,8 @@ import lombok.Data;
 
 @Data
 public class PlayerMoveDTO {
-    float playerOneMove;
-    float playerTwoMove;
+    float player1Move;
+    float player2Move;
 
 
 }
