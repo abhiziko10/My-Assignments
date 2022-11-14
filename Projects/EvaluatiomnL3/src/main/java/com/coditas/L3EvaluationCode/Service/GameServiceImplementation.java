@@ -41,10 +41,10 @@ public class GameServiceImplementation implements GameService {
 
         player1.setPlayerStatus("Playing already");
         player2.setPlayerStatus("Playing already");
-        List<PlayerEntity> playersEnrolled = new ArrayList<>();
-        playersEnrolled.add(player1);
-        playersEnrolled.add(player2);
-        matchEntity.setPlayers(playersEnrolled);
+        List<PlayerEntity> playersPlaying = new ArrayList<>();
+        playersPlaying.add(player1);
+        playersPlaying.add(player2);
+        matchEntity.setPlayers(playersPlaying);
         matchEntity.setMatchName(startMatchDTO.getMatchName());
         playerRepository.save(player1);
         playerRepository.save(player2);
@@ -57,7 +57,7 @@ public class GameServiceImplementation implements GameService {
             throw  new  SamePositionOccupiedException();
         }
         playerMoveDto.setPlayer1Move(player1Move);
-        playerMoveDto.setPlayerTwoMove(player2Move);
+        playerMoveDto.setPlayer2Move(player2Move);
     }
      
 }
