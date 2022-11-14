@@ -6,7 +6,7 @@ import lombok.Data;
 public class GameDTO {
 
         private long playerId;
-        private float coordinatesX;
-        private float coordinatesY;
+        private float Xaxis;
+        private float Yaxis;
     }
 
