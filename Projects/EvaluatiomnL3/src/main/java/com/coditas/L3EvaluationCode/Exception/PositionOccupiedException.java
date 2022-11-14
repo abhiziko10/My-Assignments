@@ -1,8 +1,8 @@
 package com.coditas.L3EvaluationCode.Exception;
 
-public class PositionOccupiedException extends RuntimeException{
-    public PositionOccupiedException(){
-        super("Position already occupied");
+public class SamePositionOccupiedException extends RuntimeException{
+    public SamePositionOccupiedException(){
+        super("Position already occupied!!!!!!!");
     }
 
 }
