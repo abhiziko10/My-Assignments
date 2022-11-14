@@ -4,7 +4,7 @@ import lombok.Data;
 
 @Data
 public class StartMatchDTO {
-    private long playerOneId;
-    private long playerTwoId;
+    private long player1Id;
+    private long player2Id;
     private String matchName;
 }
